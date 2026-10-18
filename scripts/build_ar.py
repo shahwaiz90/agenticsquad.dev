@@ -23,7 +23,10 @@ s = re.sub(r'<meta property="og:(title|description)" content="[^"]*">', lambda m
 s = re.sub(r'<meta name="twitter:(title|description)" content="[^"]*">', lambda m: f'<meta name="twitter:{m.group(1)}" content="{TITLE if m.group(1)=="title" else DESC}">', s)
 rep('<meta property="og:url" content="https://agenticsquad.dev/">', f'<meta property="og:url" content="{URL}">')
 rep('<meta property="og:locale" content="en_US">', '<meta property="og:locale" content="ar_AR">\n<meta property="og:locale:alternate" content="en_US">')
-rep("page_title: 'AgenticSquad.dev landing'", "page_title: 'AgenticSquad.dev landing (ar)'")
+rep('{% include head.html ga_title="AgenticSquad.dev landing" %}', '{% include head.html ga_title="AgenticSquad.dev landing (ar)" %}')
+# shared header and footer (_includes/) carry their own Arabic text
+rep('{% include header.html home=true alt="/ar/" %}', '{% include header.html lang="ar" home=true alt="/" %}')
+rep('{% include footer.html %}', '{% include footer.html lang="ar" %}')
 # fonts
 rep('family=JetBrains+Mono:wght@400;500&display=swap', 'family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap')
 
@@ -80,14 +83,6 @@ if RTL_CSS not in s:
 
 # ---------- body text ----------
 T = [
- ('<nav class="nav" aria-label="Page">', '<nav class="nav" aria-label="الصفحة">'),
- ('<a href="#flow">How it works</a>', '<a href="#flow">كيف يعمل</a>'),
- ('<a href="#views">What you see</a>', '<a href="#views">ما الذي تراه</a>'),
- ('<a href="#tools">Any AI tool</a>', '<a href="#tools">أي أداة ذكاء اصطناعي</a>'),
- ('<a href="#start">Get started</a>', '<a href="#start">ابدأ الآن</a>'),
- ('<a href="#faq">FAQ</a>', '<a href="#faq">الأسئلة الشائعة</a>'),
- ('<a class="lang" href="/ar/" hreflang="ar" lang="ar">العربية</a>', '<a class="lang" href="/" hreflang="en" lang="en">English</a>'),
- ('aria-label="Switch to dark theme"', 'aria-label="التبديل إلى الوضع الداكن"'),
  ('<h1>Talk to one routine. The team <span class="lit">finishes&nbsp;it.</span></h1>', '<h1>تحدّث إلى وكيل واحد. <span class="lit">والفريق يُنجز&nbsp;العمل.</span></h1>'),
  ('<p class="lede">You describe the work once, to the Scrum Master. It sizes the request and puts it on a Kanban board as cards. The Tech Lead, Developer and QA pick those cards up and finish them, and you watch each handoff in a live office and on the board.</p>',
   '<p class="lede">تصف العمل مرة واحدة للسكرم ماستر، فيقدّر حجم الطلب ويضعه على لوحة كانبان على شكل بطاقات. يتولى القائد التقني والمطوّر ومختبِر الجودة هذه البطاقات وينجزونها، وتتابع أنت كل تسليم في مكتب حيّ وعلى اللوحة.</p>'),
@@ -164,13 +159,9 @@ T = [
  ('<div class="eyebrow">FAQ</div>', '<div class="eyebrow">الأسئلة الشائعة</div>'),
  ('<h2>Questions about the AI agent team.</h2>', '<h2>أسئلة عن فريق وكلاء الذكاء الاصطناعي.</h2>'),
  ('<p class="lede">New to it? Read the <a href="/claude-code-multi-agent-team/">guide to running a multi-agent team in Claude Code</a>.</p>', '<p class="lede">جديد عليه؟ اقرأ <a href="/claude-code-multi-agent-team/" hreflang="en">دليل تشغيل فريق متعدد الوكلاء في Claude Code</a> (بالإنجليزية).</p>'),
- ('<span>AgenticSquad.dev · MIT licence · by <a', '<span>AgenticSquad.dev · رخصة MIT · من إعداد <a'),
- ('>Syed Ahmad Shahwaiz</a></span>', '>سيد أحمد شهويز</a></span>'),
- ('<span><a href="/sitemap/">Sitemap</a> · <a href="/llms.txt">llms.txt</a></span>', '<span><a href="/sitemap/">خريطة الموقع</a> · <a href="/llms.txt">llms.txt</a></span>'),
  # script strings
  ("say('Copied: ' + txt)", "say('تم النسخ: ' + txt)"),
  ("say('Select and copy: ' + txt)", "say('حدّد وانسخ: ' + txt)"),
- ("isDark() ? 'Switch to light theme' : 'Switch to dark theme'", "isDark() ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن'"),
  ("{ t: 'Request', who: 'you', w: 'You', body: 'You describe the goal in plain words, in whichever AI tool you already use. That session only dispatches: it passes the request to the Scrum Master and starts each next role from the HANDOFF lines they return. In Claude Code a hook stops it from editing files itself.',",
   "{ t: 'الطلب', who: 'you', w: 'أنت', body: 'تصف الهدف بكلمات بسيطة، في أي أداة ذكاء اصطناعي تستخدمها أصلًا. تلك الجلسة توزّع العمل فقط: تمرّر الطلب إلى السكرم ماستر وتشغّل كل دور تالٍ من أسطر HANDOFF التي يعيدها. وفي Claude Code يمنعها خطّاف (hook) من تعديل الملفات بنفسها.',"),
  ("{ t: 'Plan', who: 'tech-pm', w: 'Scrum Master', body: 'The Scrum Master sizes the request with a quick look and posts the size on the requirement. A small change takes the fast path below. Anything bigger becomes a card for the Tech Lead with a brief, acceptance criteria and context. It never writes application code.',",

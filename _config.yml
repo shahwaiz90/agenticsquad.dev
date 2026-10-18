@@ -1,0 +1,5 @@
+# GitHub Pages builds this site with Jekyll so pages can share the head, header and footer
+# in _includes/. Pages opt in with an empty front matter block (--- / ---) at the top.
+exclude:
+  - README.md
+  - scripts

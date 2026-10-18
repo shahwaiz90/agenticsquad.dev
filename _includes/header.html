@@ -1,0 +1,48 @@
+{% comment %}
+Shared header. Params:
+  lang  "en" (default) or "ar"
+  home  true on a home page, so section links stay on the page (#flow) instead of going home first (/#flow)
+  alt   link to the same page in the other language; shows the language switch when set
+{% endcomment %}{% if include.lang == "ar" %}{% assign root = "/ar/" %}{% else %}{% assign root = "/" %}{% endif %}{% if include.home %}{% assign base = "" %}{% else %}{% assign base = root %}{% endif %}
+<nav class="nav" aria-label="{% if include.lang == 'ar' %}الصفحة{% else %}Page{% endif %}">
+  <div class="bar-wrap">
+    <a class="brand" href="{% if include.home %}#top{% else %}{{ root }}{% endif %}"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>AgenticSquad.dev</a>
+    <div class="nav-end">
+    <div class="nav-links">
+{% if include.lang == "ar" %}      <a href="{{ base }}#flow">كيف يعمل</a>
+      <a href="{{ base }}#views">ما الذي تراه</a>
+      <a href="{{ base }}#tools">أي أداة ذكاء اصطناعي</a>
+      <a href="{{ base }}#start">ابدأ الآن</a>
+      <a href="{{ base }}#faq">الأسئلة الشائعة</a>
+{% else %}      <a href="{{ base }}#flow">How it works</a>
+      <a href="{{ base }}#views">What you see</a>
+      <a href="{{ base }}#tools">Any AI tool</a>
+      <a href="{{ base }}#start">Get started</a>
+      <a href="{{ base }}#faq">FAQ</a>
+{% endif %}    </div>
+{% if include.alt %}{% if include.lang == "ar" %}    <a class="lang" href="{{ include.alt }}" hreflang="en" lang="en">English</a>
+{% else %}    <a class="lang" href="{{ include.alt }}" hreflang="ar" lang="ar">العربية</a>
+{% endif %}{% endif %}    <button class="theme-btn" id="theme-btn" type="button" aria-label="{% if include.lang == 'ar' %}التبديل إلى الوضع الداكن{% else %}Switch to dark theme{% endif %}">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    </div>
+  </div>
+</nav>
+<script>
+/* Theme button: saves the choice for every page and fires "themechange" for pages that redraw (the home canvas). */
+(() => {
+  const root = document.documentElement, mq = matchMedia('(prefers-color-scheme: dark)'), btn = document.getElementById('theme-btn');
+  const L = {% if include.lang == "ar" %}['التبديل إلى الوضع الفاتح', 'التبديل إلى الوضع الداكن']{% else %}['Switch to light theme', 'Switch to dark theme']{% endif %};
+  const dark = () => root.dataset.theme ? root.dataset.theme === 'dark' : mq.matches;
+  const sync = () => { btn.setAttribute('aria-label', dark() ? L[0] : L[1]); document.dispatchEvent(new CustomEvent('themechange')); };
+  btn.addEventListener('click', () => {
+    root.dataset.theme = dark() ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    try { gtag('event', 'theme_toggle', { theme: root.dataset.theme }); } catch (e) {}
+    sync();
+  });
+  mq.addEventListener('change', sync);
+  sync();
+})();
+</script>

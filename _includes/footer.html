@@ -1,0 +1,9 @@
+{% comment %} Shared footer. Params: lang "en" (default) or "ar". {% endcomment %}
+<footer class="site-foot">
+  <div class="bar-wrap">
+{% if include.lang == "ar" %}    <span>AgenticSquad.dev · رخصة MIT · من إعداد <a href="https://www.linkedin.com/in/ahmadshahwaiz/" rel="author noopener" target="_blank">سيد أحمد شهويز</a></span>
+    <span><a href="/sitemap/">خريطة الموقع</a> · <a href="/llms.txt">llms.txt</a></span>
+{% else %}    <span>AgenticSquad.dev · MIT licence · by <a href="https://www.linkedin.com/in/ahmadshahwaiz/" rel="author noopener" target="_blank">Syed Ahmad Shahwaiz</a></span>
+    <span><a href="/sitemap/">Sitemap</a> · <a href="/llms.txt">llms.txt</a></span>
+{% endif %}  </div>
+</footer>

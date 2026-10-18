@@ -1,0 +1,29 @@
+/* ---------- shared header and footer (from _includes/chrome-css.html) ---------- */
+.bar-wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.nav .bar-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 1.05rem var(--f-display, system-ui, sans-serif); color: var(--fg); text-decoration: none; }
+.brand-mark { width: 26px; height: 26px; border-radius: 7px; background: var(--panel2, var(--panel)); border: 1px solid var(--line2, var(--line)); display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 4px; flex: none; }
+.brand-mark i { background: var(--line2, var(--line)); border-radius: 2px; }
+.brand-mark i:nth-child(1) { background: var(--lamp); }
+.brand-mark i:nth-child(4) { background: var(--sky, #5aa8f0); }
+.nav-end { display: flex; align-items: center; gap: 22px; }
+.nav-links { display: flex; gap: 22px; font-size: .9rem; color: var(--muted); }
+.nav-links a { color: inherit; text-decoration: none; }
+.nav-links a:hover { color: var(--fg); }
+@media (max-width: 900px) { .nav-links { display: none; } }
+.lang { font-size: .9rem; color: var(--muted); text-decoration: none; border: 1px solid var(--line2, var(--line)); border-radius: 9px; padding: 5px 10px; line-height: 1.3; }
+.lang:hover { color: var(--fg); }
+.theme-btn { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--line2, var(--line)); background: var(--panel); color: var(--muted); cursor: pointer; flex: none; }
+.theme-btn:hover { color: var(--fg); }
+.theme-btn svg { width: 17px; height: 17px; }
+.theme-btn .sun, :root[data-theme="dark"] .theme-btn .moon { display: none; }
+:root[data-theme="dark"] .theme-btn .sun { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-btn .sun { display: block; }
+  :root:not([data-theme="light"]) .theme-btn .moon { display: none; }
+}
+.site-foot { border-top: 1px solid var(--line); padding-block: 28px; color: var(--faint, var(--muted)); font-size: .85rem; }
+.site-foot .bar-wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.site-foot a { color: var(--muted); text-underline-offset: 3px; }
+.site-foot a:hover { color: var(--fg); }

@@ -1,0 +1,24 @@
+{% comment %} Shared <head> tags. Params: ga_title (page title sent to Analytics). {% endcomment %}
+<script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<meta name="theme-color" content="#f2f4f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+<!-- Google Analytics (GA4): visits plus a few click events. Off on localhost and for automated browsers. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+(() => {
+  if (navigator.webdriver || !/(^|\.)agenticsquad\.dev$/.test(location.hostname)) return;
+  const s = document.createElement('script');
+  s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6X8CJQFKD8';
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  gtag('config', 'G-6X8CJQFKD8', { page_title: '{{ include.ga_title | default: "AgenticSquad.dev" }}' });
+})();
+</script>
