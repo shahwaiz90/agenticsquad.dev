@@ -182,6 +182,7 @@ T = [
  ('<p class="lede">New to it? Read the <a href="/claude-code-multi-agent-team/">guide to running a multi-agent team in Claude Code</a>.</p>', '<p class="lede">جديد عليه؟ اقرأ <a href="/claude-code-multi-agent-team/" hreflang="en">دليل تشغيل فريق متعدد الوكلاء في Claude Code</a> (بالإنجليزية).</p>'),
  ('<span>AgenticSquad.dev · MIT licence · by <a', '<span>AgenticSquad.dev · رخصة MIT · من إعداد <a'),
  ('>Syed Ahmad Shahwaiz</a></span>', '>سيد أحمد شهويز</a></span>'),
+ ('<span><a href="/sitemap/">Sitemap</a> · <a href="/llms.txt">llms.txt</a></span>', '<span><a href="/sitemap/">خريطة الموقع</a> · <a href="/llms.txt">llms.txt</a></span>'),
  # script strings
  ("say('Copied: ' + txt)", "say('تم النسخ: ' + txt)"),
  ("say('Select and copy: ' + txt)", "say('حدّد وانسخ: ' + txt)"),

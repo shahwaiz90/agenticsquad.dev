@@ -1,0 +1,75 @@
+# AgenticSquad.dev
+
+> AgenticSquad.dev gives your AI coding assistant a team: a Scrum Master plus a Tech Lead, Developer and QA for each platform (Web, Android, iOS). You talk to the Scrum Master, it puts the work on a Kanban board as cards, and the other agents pick the cards up and finish them. A local portal shows every handoff live on an office floor plan and on the board. Free, MIT licensed, runs on your machine.
+
+- Website: https://agenticsquad.dev/ (Arabic: https://agenticsquad.dev/ar/)
+- npm package: `agenticsquad` (https://www.npmjs.com/package/agenticsquad)
+- Current version: 1.3.0
+- Licence: MIT
+- Author: Syed Ahmad Shahwaiz (https://www.linkedin.com/in/ahmadshahwaiz/)
+
+## Install
+
+Needs Node.js. In a terminal:
+
+```bash
+cd your-project
+npx agenticsquad
+```
+
+Nothing is installed globally and setup takes under 5 seconds. The portal opens at http://localhost:3000 (or the next free port). If the project has no team yet, a setup screen lets you pick a Web, Android or iOS team, or all three.
+
+Options: `npx agenticsquad --port 3001` for another port, `npx agenticsquad --dir /path/to/project` to watch another folder. Several projects can run at once on different ports.
+
+## Supported AI coding tools
+
+- Claude Code: reads `CLAUDE.md` and subagents in `.claude/agents/`
+- OpenAI Codex: reads `AGENTS.md` and `.codex/`
+- Google Gemini and Antigravity: read `GEMINI.md`
+- OpenCode, including local models: reads `.agents/registry.yaml` and `.agents/definitions/*.md`
+
+The team is defined once as Markdown and YAML in `.agents/`. `npx -p agenticsquad agents sync` writes it out for every tool. `npx -p agenticsquad agents validate` and `npx -p agenticsquad agents doctor` check the setup.
+
+## How a request moves
+
+1. **Request.** You describe the goal in your usual AI tool. That session only dispatches: it hands the request to the Scrum Master.
+2. **Plan.** The Scrum Master sizes the request and picks the platform team. A small change (one to three files, no change to a shared type, API or stored data) goes straight to that platform's Developer with the Tech Lead as reviewer. Anything bigger becomes a card for the Tech Lead.
+3. **Contract.** The Tech Lead writes a short contract for the Developer: files to change, files affected, risks and how to verify. If real testing is needed it opens a QA card.
+4. **Build.** The Developer implements one card at a time, checks every acceptance criterion and moves the card to review.
+5. **Test and review.** QA records pass or fail per criterion; the Tech Lead reviews against the contract. When every task is done the requirement closes.
+
+Every brief, decision and result lives on the cards, so each agent reads its card instead of a long pasted prompt.
+
+## What the portal shows
+
+- Office floor plan: agents walk cards to each other on handoffs.
+- Kanban board: Backlog, In Progress, Review, Done, with timestamps and assignees.
+- Handoff stream: every delegation with the exact brief passed.
+- Tool analytics: terminal commands, MCP tools, handbacks and file writes per agent.
+- Code change inspector: the diff each agent produced, filed under its card.
+- Time and tokens: work time and token usage per role.
+- Replay: plays a finished requirement's handoffs on the floor plan; can be saved as video.
+- Watch demo: a scripted walkthrough through your own team that saves nothing.
+
+## Privacy
+
+The portal listens only on 127.0.0.1 and refuses requests from other websites. It reads each tool's session history from your own disk (for Claude Code, `~/.claude/projects/`). Code, file paths, card text and tokens are never sent anywhere. The portal sends anonymous usage statistics (Google Analytics); turn them off in Settings or start with `VO_ANALYTICS=off npx agenticsquad`.
+
+## FAQ
+
+**Is it free?** Yes, free and MIT licensed.
+
+**Can I change the agents?** Yes. Edit them in Team Studio inside the portal or in `.agents/definitions/`, then run `npx -p agenticsquad agents sync`. Roles, names, allowed tools, skills, rules and avatars are all configurable.
+
+**Does my code leave my machine?** No. Everything runs locally; only anonymous usage statistics are sent, and they can be switched off.
+
+## Pages
+
+- [Home](https://agenticsquad.dev/)
+- [Home in Arabic / الصفحة الرئيسية](https://agenticsquad.dev/ar/)
+- [How to run a multi-agent team in Claude Code](https://agenticsquad.dev/claude-code-multi-agent-team/)
+- [Sitemap](https://agenticsquad.dev/sitemap/)
+
+## ملخص بالعربية
+
+يمنح AgenticSquad.dev مساعد البرمجة بالذكاء الاصطناعي فريقًا كاملًا: سكرم ماستر، ومعه قائد تقني ومطوّر ومختبِر جودة لكل منصة (الويب وأندرويد وiOS). للتثبيت: انتقل إلى مجلد مشروعك باستخدام `cd` ثم شغّل `npx agenticsquad`. يعمل مع Claude Code وCodex وGemini وOpenCode، ويعمل محليًا على جهازك، وهو مجاني برخصة MIT.

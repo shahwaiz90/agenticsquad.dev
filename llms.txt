@@ -12,4 +12,7 @@ Install: in a terminal, `cd` into your project folder, then run `npx agenticsqua
 
 ## Links
 
+- [Full description for AI assistants](https://agenticsquad.dev/llms-full.txt)
+- [Sitemap](https://agenticsquad.dev/sitemap/)
+
 - [npm package](https://www.npmjs.com/package/agenticsquad)

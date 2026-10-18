@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Sitemap · AgenticSquad.dev</title>
+<meta name="description" content="Every page on AgenticSquad.dev, in English and Arabic.">
+<link rel="canonical" href="https://agenticsquad.dev/sitemap/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg:#f2f4f9; --panel:#ffffff; --line:#d6dceb; --fg:#121a2c; --muted:#4d5973; --lamp:#9a5a08; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0b1120; --panel:#131c2e; --line:#243049; --fg:#e8edf7; --muted:#a3afc6; --lamp:#f0a43a; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+nav { border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; gap: 10px; padding-block: 14px; }
+nav a { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--fg); text-decoration: none; }
+h1 { font-size: 2rem; margin: 40px 0 8px; }
+p { color: var(--muted); margin: 0 0 24px; }
+h2 { font-size: 1rem; margin: 28px 0 10px; color: var(--muted); font-weight: 600; }
+ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+li a { display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--fg); text-decoration: none; }
+li a:hover { border-color: var(--lamp); }
+li small { display: block; color: var(--muted); font-size: .85rem; }
+footer { margin-top: 48px; border-top: 1px solid var(--line); padding: 24px 0; color: var(--muted); font-size: .85rem; }
+footer a { color: inherit; }
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="/"><img src="/favicon.svg" alt="" width="26" height="26">AgenticSquad.dev</a></div></nav>
+<main class="wrap">
+  <h1>Sitemap</h1>
+  <p>Every page on AgenticSquad.dev. Search engines read the same list from <a href="/sitemap.xml">sitemap.xml</a>.</p>
+  <h2>English</h2>
+  <ul>
+    <li><a href="/">Home<small>agenticsquad.dev · what it does, how a request moves, FAQ</small></a></li>
+    <li><a href="/claude-code-multi-agent-team/">How to run a multi-agent team in Claude Code<small>Step-by-step setup guide</small></a></li>
+  </ul>
+  <h2 lang="ar">العربية</h2>
+  <ul lang="ar" dir="rtl">
+    <li><a href="/ar/">الصفحة الرئيسية<small>ما يفعله AgenticSquad.dev، ومسار الطلب، والأسئلة الشائعة</small></a></li>
+  </ul>
+  <h2>For AI assistants</h2>
+  <ul>
+    <li><a href="/llms.txt">llms.txt<small>Short summary and page index</small></a></li>
+    <li><a href="/llms-full.txt">llms-full.txt<small>Full product description in plain Markdown</small></a></li>
+  </ul>
+</main>
+<footer><div class="wrap">AgenticSquad.dev · MIT licence · by <a href="https://www.linkedin.com/in/ahmadshahwaiz/" rel="author noopener" target="_blank">Syed Ahmad Shahwaiz</a></div></footer>
+</body>
+</html>
