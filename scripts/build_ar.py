@@ -68,7 +68,7 @@ h1, h2, h3, .hero h1, .eyebrow { letter-spacing: 0; }
 .step .s-w, .msg small, .rp small, .meter .st, .view-foot, .panel-h, .tour-banner, .rp-bar .tag { font-family: var(--f-body); letter-spacing: 0; }
 h2 { line-height: 1.25; }
 .eyebrow { font-family: var(--f-body); font-weight: 600; font-size: .85rem; }
-code, pre, .cmd, .term, .stage, .sync, .diff-body, .num-cell b { direction: ltr; unicode-bidi: isolate; }
+code, pre, .cmd, .term, .stage, .sync, .diff-body { direction: ltr; unicode-bidi: isolate; }
 .stage, .term, .sync { text-align: left; }
 .sync h3 { text-align: right; direction: rtl; }
 [dir="rtl"] .step .bar { transform-origin: right; }
@@ -84,7 +84,6 @@ T = [
  ('<a href="#flow">How it works</a>', '<a href="#flow">كيف يعمل</a>'),
  ('<a href="#views">What you see</a>', '<a href="#views">ما الذي تراه</a>'),
  ('<a href="#tools">Any AI tool</a>', '<a href="#tools">أي أداة ذكاء اصطناعي</a>'),
- ('<a href="#build">Progress</a>', '<a href="#build">التقدّم</a>'),
  ('<a href="#start">Get started</a>', '<a href="#start">ابدأ الآن</a>'),
  ('<a href="#faq">FAQ</a>', '<a href="#faq">الأسئلة الشائعة</a>'),
  ('<a class="lang" href="/ar/" hreflang="ar" lang="ar">العربية</a>', '<a class="lang" href="/" hreflang="en" lang="en">English</a>'),
@@ -156,21 +155,6 @@ T = [
  ('<p>There is no mock data. Every card, handoff and token count comes from a real session, and 33 test suites guard it in CI. The Watch demo is labelled as a simulation and never touches your board.</p>', '<p>لا توجد بيانات وهمية. كل بطاقة وتسليم وعدد رموز يأتي من جلسة حقيقية، وتحميه 33 مجموعة اختبارات في CI. والعرض التوضيحي موسوم بأنه محاكاة ولا يلمس لوحتك أبدًا.</p>'),
  ('<h3>Changes go through the team</h3>', '<h3>التغييرات تمرّ عبر الفريق</h3>'),
  ('<p>The session you type into only dispatches work. In Claude Code a hook stops it from editing files, so every change, even a one-line fix, goes to the Scrum Master and gets reviewed.</p>', '<p>الجلسة التي تكتب فيها توزّع العمل فقط. في Claude Code يمنعها خطّاف (hook) من تعديل الملفات، فيذهب كل تغيير، حتى إصلاح من سطر واحد، إلى السكرم ماستر ويخضع للمراجعة.</p>'),
- ('<div class="eyebrow">Progress so far</div>', '<div class="eyebrow">التقدّم حتى الآن</div>'),
- ('<h2>Built in four days, shipped as an npm package.</h2>', '<h2>بُني في أربعة أيام، ونُشر كحزمة npm.</h2>'),
- ('<span>days, first commit to today</span>', '<span>أيام من أول commit حتى اليوم</span>'),
- ('<span>commits</span>', '<span>commit</span>'),
- ('<span>pull requests merged</span>', '<span>طلب دمج مدموج</span>'),
- ('<span>skills in the catalog</span>', '<span>مهارة في الكتالوج</span>'),
- ('<span>test suites in CI</span>', '<span>مجموعة اختبارات في CI</span>'),
- ('<span>AI tools supported</span>', '<span>أدوات ذكاء اصطناعي مدعومة</span>'),
- ('<b>14 Oct</b><span><strong>The office opens.</strong> Agent discovery from any folder format, a role-to-role task board, cross-platform support.</span>', '<b>14 أكتوبر</b><span><strong>المكتب يفتح أبوابه.</strong> اكتشاف الوكلاء من أي صيغة مجلدات، ولوحة مهام بين الأدوار، ودعم متعدد المنصات.</span>'),
- ('<b>15 Oct</b><span><strong>Seeing the work.</strong> Workflow screen and video recorder, agent-to-agent prompts captured, file changes tab.</span>', '<b>15 أكتوبر</b><span><strong>رؤية العمل.</strong> شاشة سير العمل ومسجّل الفيديو، والتقاط الموجّهات بين الوكلاء، وتبويب تغييرات الملفات.</span>'),
- ('<b>16 Oct</b><span><strong>One team file.</strong> Universal agent registry, multi-project isolation, project launcher.</span>', '<b>16 أكتوبر</b><span><strong>ملف فريق واحد.</strong> سجل وكلاء موحّد، وعزل بين المشاريع المتعددة، ومشغّل المشاريع.</span>'),
- ('<b>17 Oct</b><span><strong>Ready to share.</strong> Local-only security, Integrations panel, token usage on desks and cards, OpenCode support, v1.2.1.</span>', '<b>17 أكتوبر</b><span><strong>جاهز للمشاركة.</strong> أمان محلي فقط، ولوحة التكاملات، واستهلاك الرموز على المكاتب والبطاقات، ودعم OpenCode، والإصدار v1.2.1.</span>'),
- ("<b>17 Oct</b><span><strong>A team that works like one.</strong> Agents walk to each other's desks on handoffs, a fast path for small tasks, a QA role and Team Studio, Watch demo, a main session that only dispatches, and Replay with Save as video.</span>", '<b>17 أكتوبر</b><span><strong>فريق يعمل كفريق.</strong> الوكلاء يمشون إلى مكاتب بعضهم عند التسليم، ومسار سريع للمهام الصغيرة، ودور مختبِر الجودة وTeam Studio، والعرض التوضيحي، وجلسة رئيسية توزّع العمل فقط، وإعادة العرض مع الحفظ كفيديو.</span>'),
- ('<b>18 Oct</b><span><strong>Leaner and measurable.</strong> Anonymous usage statistics with an opt-out, leaner board calls with about 46% fewer tokens per role, faster agent verification rules, v1.3.0.</span>', '<b>18 أكتوبر</b><span><strong>أخفّ وقابل للقياس.</strong> إحصاءات استخدام مجهولة الهوية مع إمكانية الإيقاف، واستدعاءات أخفّ للوحة بنحو 46% رموز أقل لكل دور، وقواعد تحقق أسرع للوكلاء، والإصدار v1.3.0.</span>'),
- ('<p class="src">Counted from main at 7b64e94 (pull request #23) on 17 Oct 2026, 17:30: commits from git log, merged pull requests, SKILL.md files in .agents/skills, suites in npm test, tool adapters in server/adapters.</p>', '<p class="src">محسوبة من الفرع main عند 7b64e94 (طلب الدمج رقم 23) في 17 أكتوبر 2026 الساعة 17:30: الـ commits من git log، وطلبات الدمج المدموجة، وملفات SKILL.md في .agents/skills، ومجموعات npm test، ومحوّلات الأدوات في server/adapters.</p>'),
  ('<div class="eyebrow">Get started</div>', '<div class="eyebrow">ابدأ الآن</div>'),
  ('<h2 style="margin-top:14px">Install the agent team with one command.</h2>', '<h2 style="margin-top:14px">ثبّت فريق الوكلاء بأمر واحد.</h2>'),
  ('<li><span class="i">1</span><p><strong>Open your project folder</strong> in a terminal. New or existing, any stack.</p></li>', '<li><span class="i">1</span><p><strong>افتح مجلد مشروعك</strong> في الطرفية. جديد أو قائم، وبأي تقنية.</p></li>'),
@@ -221,8 +205,6 @@ T = [
  ("['web-tech-lead', 'contract + review',", "['web-tech-lead', 'العقد + المراجعة',"),
  ("['web-dev', 'building VO-43',", "['web-dev', 'بناء VO-43',"),
  ("['web-tester', 'testing VO-44',", "['web-tester', 'اختبار VO-44',"),
- ("aria-label=\"Commits per day: ${DAYS.map(([d, v]) => v + ' on ' + d).join(', ')}\"", "aria-label=\"عدد الـ commits يوميًا: ${DAYS.map(([d, v]) => v + ' في ' + d).join('، ')}\""),
- ("const DAYS = [['14 Oct', 14], ['15 Oct', 4], ['16 Oct', 10], ['17 Oct', 71]];", "const DAYS = [['14 أكتوبر', 14], ['15 أكتوبر', 4], ['16 أكتوبر', 10], ['17 أكتوبر', 71]];"),
 ]
 for t in T:
     old, new = t[0], t[1]; n = t[2] if len(t) > 2 else 1
