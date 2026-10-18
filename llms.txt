@@ -7,6 +7,7 @@ Install: in a terminal, `cd` into your project folder, then run `npx agenticsqua
 ## Pages
 
 - [Home](https://agenticsquad.dev/): what it does, how a request moves through the team, what the portal shows, FAQ
+- [Arabic / العربية](https://agenticsquad.dev/ar/): the home page in Arabic
 - [How to run a multi-agent team in Claude Code](https://agenticsquad.dev/claude-code-multi-agent-team/): step-by-step setup guide
 
 ## Links
