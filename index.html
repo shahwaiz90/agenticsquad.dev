@@ -363,6 +363,8 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 .term { border: 1px solid var(--line2); border-radius: 14px; background: var(--panel); overflow: hidden; box-shadow: var(--shadow); min-width: 0; }
 .term-body { padding: 20px 22px 24px; font: 400 .85rem/1.9 var(--f-mono); overflow-x: auto; }
 .term-body .p { color: var(--lamp); }
+.cmd-hint { color: var(--muted); font-size: .9rem; margin-top: -8px; }
+.cmd-hint code, .how code { font-size: .82rem; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; white-space: nowrap; }
 .term-body .o { color: var(--muted); }
 .term-body .g { color: var(--mint); }
 .how { display: grid; gap: 18px; margin-top: 26px; }
@@ -420,6 +422,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
           <a class="btn btn-primary" href="#flow">See a request move <span aria-hidden="true">→</span></a>
           <button class="cmd" type="button" data-copy="npx agenticsquad" aria-label="Copy the install command"><span><span class="p">$</span> npx agenticsquad</span><span class="copy">copy</span></button>
         </div>
+        <p class="cmd-hint">First <code>cd</code> into your project folder, then run <code>npx agenticsquad</code>. Setup takes under 5 seconds.</p>
       </div>
     </div>
 
@@ -643,14 +646,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <div class="how">
         <ol>
           <li><span class="i">1</span><p><strong>Open your project folder</strong> in a terminal. New or existing, any stack.</p></li>
-          <li><span class="i">2</span><p><strong>Run the command.</strong> The portal finds your agents, or helps you pick an Android, iOS or Web team (Scrum Master, Tech Lead, Developer and QA), or all three with the Scrum Master routing by platform, that you can adjust in Team Studio.</p></li>
+          <li><span class="i">2</span><p><strong>Run the command</strong> from inside that folder: <code>cd your-project</code>, then <code>npx agenticsquad</code>. It takes under 5 seconds. The portal finds your agents, or helps you pick an Android, iOS or Web team (Scrum Master, Tech Lead, Developer and QA), or all three with the Scrum Master routing by platform, that you can adjust in Team Studio.</p></li>
           <li><span class="i">3</span><p><strong>Ask as usual</strong> in Claude Code, Codex, Gemini or OpenCode. Your session hands the request to the Scrum Master, and the office fills in as your agents work.</p></li>
         </ol>
       </div>
     </div>
     <div class="term">
       <div class="stage-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">~/your-project</span><button class="cmd" type="button" data-copy="npx agenticsquad" style="padding:4px 8px" aria-label="Copy the install command"><span class="copy" style="border:0;padding:0">copy</span></button></div>
-      <div class="term-body"><div><span class="p">$</span> npx agenticsquad</div><div class="o">Discovered 4 agents in .agents/registry.yaml</div><div class="o">  SM · LEAD · DEV · QA</div><div><span class="g">✓</span> Portal running at http://127.0.0.1:3000</div><div class="o caret">Watching Claude Code, OpenCode and Antigravity sessions </div></div>
+      <div class="term-body"><div><span class="p">$</span> cd your-project</div><div><span class="p">$</span> npx agenticsquad</div><div class="o">Discovered 4 agents in .agents/registry.yaml</div><div class="o">  SM · LEAD · DEV · QA</div><div><span class="g">✓</span> Portal running at http://127.0.0.1:3000</div><div class="o caret">Watching Claude Code, OpenCode and Antigravity sessions </div></div>
     </div>
   </div>
 </section>
