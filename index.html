@@ -7,9 +7,44 @@
 <meta name="theme-color" content="#f2f4f9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
 <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
-<meta name="description" content="Talk to one routine, the Scrum Master. Your AI agent team picks up the work on a Kanban board and finishes it, and AgenticSquad.dev shows every step.">
-<title>AgenticSquad.dev</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Run a Scrum Master, Tech Lead, Developer and QA as AI agents. AgenticSquad.dev turns one request into Kanban cards and shows every handoff live. Free, local, one npm command.">
+<title>AgenticSquad.dev – AI agent team for Claude Code, Codex and Gemini</title>
+<link rel="canonical" href="https://agenticsquad.dev/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Syed Ahmad Shahwaiz">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AgenticSquad.dev">
+<meta property="og:url" content="https://agenticsquad.dev/">
+<meta property="og:title" content="AgenticSquad.dev – AI agent team for Claude Code, Codex and Gemini">
+<meta property="og:description" content="Run a Scrum Master, Tech Lead, Developer and QA as AI agents. AgenticSquad.dev turns one request into Kanban cards and shows every handoff live. Free, local, one npm command.">
+<meta property="og:image" content="https://agenticsquad.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AgenticSquad.dev: Talk to one routine. The team finishes it. npx agenticsquad">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AgenticSquad.dev – AI agent team for Claude Code, Codex and Gemini">
+<meta name="twitter:description" content="Run a Scrum Master, Tech Lead, Developer and QA as AI agents. AgenticSquad.dev turns one request into Kanban cards and shows every handoff live. Free, local, one npm command.">
+<meta name="twitter:image" content="https://agenticsquad.dev/og-image.png">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AgenticSquad.dev", "alternateName": "agenticsquad", "url": "https://agenticsquad.dev/", "description": "Run a Scrum Master, Tech Lead, Developer and QA as AI agents. AgenticSquad.dev turns one request into Kanban cards and shows every handoff live. Free, local, one npm command.", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Windows, Linux", "softwareVersion": "1.3.0", "license": "https://opensource.org/licenses/MIT", "image": "https://agenticsquad.dev/og-image.png", "installUrl": "https://www.npmjs.com/package/agenticsquad", "downloadUrl": "https://www.npmjs.com/package/agenticsquad", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Syed Ahmad Shahwaiz"}, "keywords": "AI agents, multi-agent, Claude Code, Codex, Gemini, OpenCode, Scrum Master agent, Kanban, agent orchestration, developer tools"}, {"@context": "https://schema.org", "@type": "WebSite", "name": "AgenticSquad.dev", "url": "https://agenticsquad.dev/"}]</script>
+<!-- Google Analytics (GA4): visits plus a few click events, see track() below. Off on localhost and for automated browsers. -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+(() => {
+  const host = location.hostname;
+  if (navigator.webdriver || !/(^|\.)agenticsquad\.dev$/.test(host)) return;
+  const s = document.createElement('script');
+  s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6X8CJQFKD8';
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  gtag('config', 'G-6X8CJQFKD8', { page_title: 'AgenticSquad.dev landing' });
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -371,6 +406,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   </div>
 </nav>
 
+<main>
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-top">
@@ -448,9 +484,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       </div>
       <div class="fast-route" aria-label="Fast path: you, Scrum Master, Developer, then Tech Lead review">
         <span class="hop"><span class="you">you</span>You</span><span class="arr" aria-hidden="true">→</span>
-        <span class="hop"><img alt="" src="img/projectmanager.png">Scrum Master</span><span class="arr" aria-hidden="true">→</span>
-        <span class="hop"><img alt="" src="img/developer.png">Developer</span><span class="arr" aria-hidden="true">→</span>
-        <span class="hop"><img alt="" src="img/techlead.png">Tech Lead reviews</span>
+        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/projectmanager.png">Scrum Master</span><span class="arr" aria-hidden="true">→</span>
+        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/developer.png">Developer</span><span class="arr" aria-hidden="true">→</span>
+        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/techlead.png">Tech Lead reviews</span>
       </div>
     </div>
   </div>
@@ -619,6 +655,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
     <span>AgenticSquad.dev · MIT licence · by Syed Ahmad Shahwaiz</span>
@@ -631,6 +669,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 (() => {
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s, r = document) => r.querySelector(s);
+const track = (name, params) => { try { gtag('event', name, params); } catch (e) {} };
 const IMG = { 'tech-pm': 'img/projectmanager.png', 'web-tech-lead': 'img/techlead.png', 'web-dev': 'img/developer.png', 'web-tester': 'img/qa.png' };
 const ROLE = { 'tech-pm': 'Scrum Master', 'web-tech-lead': 'Tech Lead', 'web-dev': 'Developer', 'web-tester': 'QA' };
 const COLOR = { 'tech-pm': '--lamp', 'web-tech-lead': '--sky', 'web-dev': '--mint', 'web-tester': '--rose' };
@@ -641,9 +680,22 @@ const toast = $('#toast');
 function say(t) { toast.textContent = t; toast.classList.add('on'); clearTimeout(say.t); say.t = setTimeout(() => toast.classList.remove('on'), 1800); }
 document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
   const txt = b.dataset.copy;
+  track('copy_install_command', { command: txt, location: b.closest('#start') ? 'get_started' : 'hero' });
   const p = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(txt) : Promise.reject();
   p.then(() => say('Copied: ' + txt)).catch(() => say('Select and copy: ' + txt));
 }));
+
+/* ---------- analytics: CTA, nav links and how far people scroll ---------- */
+document.querySelectorAll('.btn-primary').forEach(a => a.addEventListener('click', () => track('cta_click', { cta: 'see_request_move' })));
+document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => track('nav_click', { target: a.getAttribute('href').slice(1) || 'top' })));
+if ('IntersectionObserver' in window) {
+  const seen = new Set();
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting || seen.has(e.target.id)) return;
+    seen.add(e.target.id); io.unobserve(e.target); track('section_view', { section: e.target.id });
+  }), { threshold: 0.35 });
+  document.querySelectorAll('section[id]').forEach(el => io.observe(el));
+}
 
 /* ---------- colour tokens for canvas (re-read when the theme changes) ---------- */
 const T = {};
@@ -660,6 +712,7 @@ function syncTheme() { themeBtn.setAttribute('aria-label', isDark() ? 'Switch to
 themeBtn.addEventListener('click', () => {
   root.dataset.theme = isDark() ? 'light' : 'dark';
   try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  track('theme_toggle', { theme: root.dataset.theme });
   syncTheme();
 });
 darkMQ.addEventListener('change', syncTheme);
@@ -1014,7 +1067,7 @@ STEPS.forEach((s, i) => {
   const b = document.createElement('button');
   b.className = 'step'; b.type = 'button'; b.setAttribute('role', 'tab'); b.id = 'step-' + i;
   b.innerHTML = `<span class="n">${String(i + 1).padStart(2, '0')}</span><span class="s-t">${s.t}</span><span class="s-w">${s.who === 'you' ? '<span class="you">you</span>' : `<img alt="" src="${IMG[s.who]}">`}${s.w}</span><span class="bar"></span>`;
-  b.addEventListener('click', () => { auto = false; show(i); });
+  b.addEventListener('click', () => { auto = false; show(i); track('stage_tab_click', { step: s.t }); });
   stepsEl.appendChild(b);
 });
 function show(i) {
