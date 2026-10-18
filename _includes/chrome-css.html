@@ -1,12 +1,17 @@
 /* ---------- shared header and footer (from _includes/chrome-css.html) ---------- */
+/* Logo colours live here so the mark looks the same on every page, whatever tokens the page defines. */
+:root { --mark-a: #9a5a08; --mark-b: #1866b4; --mark-bg: #f5f7fb; --mark-line: #b6c1d8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --mark-a: #f0a43a; --mark-b: #5aa8f0; --mark-bg: #18233a; --mark-line: #34425f; } }
+:root[data-theme="dark"] { --mark-a: #f0a43a; --mark-b: #5aa8f0; --mark-bg: #18233a; --mark-line: #34425f; }
+.nav, .nav *, .site-foot, .site-foot * { box-sizing: border-box; }
 .bar-wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .nav .bar-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
-.brand { display: flex; align-items: center; gap: 10px; font: 700 1.05rem var(--f-display, system-ui, sans-serif); color: var(--fg); text-decoration: none; }
-.brand-mark { width: 26px; height: 26px; border-radius: 7px; background: var(--panel2, var(--panel)); border: 1px solid var(--line2, var(--line)); display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 4px; flex: none; }
-.brand-mark i { background: var(--line2, var(--line)); border-radius: 2px; }
-.brand-mark i:nth-child(1) { background: var(--lamp); }
-.brand-mark i:nth-child(4) { background: var(--sky, #5aa8f0); }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 1.05rem "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif; letter-spacing: -0.02em; color: var(--fg); text-decoration: none; }
+.brand-mark { width: 26px; height: 26px; border-radius: 7px; background: var(--mark-bg); border: 1px solid var(--mark-line); display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 4px; flex: none; }
+.brand-mark i { background: var(--mark-line); border-radius: 2px; }
+.brand-mark i:nth-child(1) { background: var(--mark-a); }
+.brand-mark i:nth-child(4) { background: var(--mark-b); }
 .nav-end { display: flex; align-items: center; gap: 22px; }
 .nav-links { display: flex; gap: 22px; font-size: .9rem; color: var(--muted); }
 .nav-links a { color: inherit; text-decoration: none; }

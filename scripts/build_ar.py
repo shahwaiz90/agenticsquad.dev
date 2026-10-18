@@ -23,7 +23,7 @@ s = re.sub(r'<meta property="og:(title|description)" content="[^"]*">', lambda m
 s = re.sub(r'<meta name="twitter:(title|description)" content="[^"]*">', lambda m: f'<meta name="twitter:{m.group(1)}" content="{TITLE if m.group(1)=="title" else DESC}">', s)
 rep('<meta property="og:url" content="https://agenticsquad.dev/">', f'<meta property="og:url" content="{URL}">')
 rep('<meta property="og:locale" content="en_US">', '<meta property="og:locale" content="ar_AR">\n<meta property="og:locale:alternate" content="en_US">')
-rep('{% include head.html ga_title="AgenticSquad.dev landing" %}', '{% include head.html ga_title="AgenticSquad.dev landing (ar)" %}')
+rep('{% include head.html ga_title="AgenticSquad.dev landing" has_fonts=true %}', '{% include head.html ga_title="AgenticSquad.dev landing (ar)" has_fonts=true %}')
 # shared header and footer (_includes/) carry their own Arabic text
 rep('{% include header.html home=true alt="/ar/" %}', '{% include header.html lang="ar" home=true alt="/" %}')
 rep('{% include footer.html %}', '{% include footer.html lang="ar" %}')

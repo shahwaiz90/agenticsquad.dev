@@ -1,4 +1,4 @@
-{% comment %} Shared <head> tags. Params: ga_title (page title sent to Analytics). {% endcomment %}
+{% comment %} Shared <head> tags. Params: ga_title (page title sent to Analytics), has_fonts (true when the page already loads Bricolage Grotesque). {% endcomment %}
 <script>try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <meta name="theme-color" content="#f2f4f9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
@@ -8,7 +8,10 @@
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+{% unless include.has_fonts %}<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap">
+{% endunless %}<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
 <!-- Google Analytics (GA4): visits plus a few click events. Off on localhost and for automated browsers. -->
 <script>
 window.dataLayer = window.dataLayer || [];
