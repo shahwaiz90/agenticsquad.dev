@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f4f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b1120" media="(prefers-color-scheme: dark)">
+<title>How to run a multi-agent team in Claude Code | AgenticSquad.dev</title>
+<meta name="description" content="Set up a Scrum Master, Tech Lead, Developer and QA as Claude Code subagents in one command, then watch them hand work to each other on a live Kanban board. Also works with Codex, Gemini and OpenCode.">
+<link rel="canonical" href="https://agenticsquad.dev/claude-code-multi-agent-team/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Syed Ahmad Shahwaiz">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AgenticSquad.dev">
+<meta property="og:url" content="https://agenticsquad.dev/claude-code-multi-agent-team/">
+<meta property="og:title" content="How to run a multi-agent team in Claude Code">
+<meta property="og:description" content="A Scrum Master, Tech Lead, Developer and QA as Claude Code subagents, set up with one command and visible on a live Kanban board.">
+<meta property="og:image" content="https://agenticsquad.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to run a multi-agent team in Claude Code">
+<meta name="twitter:description" content="A Scrum Master, Tech Lead, Developer and QA as Claude Code subagents, set up with one command and visible on a live Kanban board.">
+<meta name="twitter:image" content="https://agenticsquad.dev/og-image.png">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"TechArticle","headline":"How to run a multi-agent team in Claude Code","description":"Set up a Scrum Master, Tech Lead, Developer and QA as Claude Code subagents in one command, then watch them hand work to each other on a live Kanban board.","image":"https://agenticsquad.dev/og-image.png","author":{"@type":"Person","name":"Syed Ahmad Shahwaiz"},"publisher":{"@type":"Organization","name":"AgenticSquad.dev","logo":{"@type":"ImageObject","url":"https://agenticsquad.dev/icon-512.png"}},"datePublished":"2026-10-18","dateModified":"2026-10-18","mainEntityOfPage":"https://agenticsquad.dev/claude-code-multi-agent-team/"},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AgenticSquad.dev","item":"https://agenticsquad.dev/"},{"@type":"ListItem","position":2,"name":"Multi-agent team in Claude Code","item":"https://agenticsquad.dev/claude-code-multi-agent-team/"}]}]</script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+(() => {
+  if (navigator.webdriver || !/(^|\.)agenticsquad\.dev$/.test(location.hostname)) return;
+  const s = document.createElement('script');
+  s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6X8CJQFKD8';
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  gtag('config', 'G-6X8CJQFKD8', { page_title: 'AgenticSquad.dev guide: Claude Code multi-agent team' });
+})();
+</script>
+<style>
+:root {
+  --bg:#f2f4f9; --panel:#ffffff; --panel2:#f5f7fb; --line:#d6dceb; --line2:#b6c1d8;
+  --fg:#121a2c; --muted:#4d5973; --lamp:#9a5a08; --on-lamp:#ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg:#0b1120; --panel:#131c2e; --panel2:#18233a; --line:#243049; --line2:#34425f; --fg:#e8edf7; --muted:#a3afc6; --lamp:#f0a43a; --on-lamp:#1a1205; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+nav { border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; justify-content: space-between; align-items: center; padding-block: 14px; max-width: 1000px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; color: var(--fg); }
+.brand img { width: 26px; height: 26px; }
+.crumbs { font-size: .85rem; color: var(--muted); margin: 40px 0 12px; }
+.crumbs a { color: var(--muted); }
+h1 { font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px; }
+h2 { font-size: 1.5rem; line-height: 1.25; margin: 48px 0 12px; letter-spacing: -0.01em; }
+p, li { color: var(--muted); }
+strong { color: var(--fg); }
+a { color: var(--lamp); }
+code { font: .88em ui-monospace, "SF Mono", Menlo, monospace; background: var(--panel2); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; color: var(--fg); }
+pre { background: var(--panel); border: 1px solid var(--line2); border-radius: 12px; padding: 16px 18px; overflow-x: auto; }
+pre code { background: none; border: 0; padding: 0; font-size: .9rem; line-height: 1.8; }
+.lede { font-size: 1.15rem; }
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--fg); }
+td { color: var(--muted); }
+.table { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.cta { margin: 56px 0; padding: 24px; border-radius: 14px; border: 1px solid var(--line2); background: var(--panel); }
+.cta a.btn { display: inline-block; margin-top: 8px; padding: 11px 18px; border-radius: 10px; background: var(--lamp); color: var(--on-lamp); font-weight: 600; text-decoration: none; }
+footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<nav aria-label="Site">
+  <div class="wrap"><a class="brand" href="/"><img src="/favicon.svg" alt="" width="26" height="26">AgenticSquad.dev</a><a href="/#start">Get started</a></div>
+</nav>
+<main class="wrap">
+  <div class="crumbs"><a href="/">Home</a> › Guide</div>
+  <article>
+    <h1>How to run a multi-agent team in Claude Code</h1>
+    <p class="lede">One Claude Code session doing everything gets messy fast. A better setup is a small team of subagents with clear roles: a <strong>Scrum Master</strong> that plans, a <strong>Tech Lead</strong> that writes the contract and reviews, a <strong>Developer</strong> that builds and a <strong>QA</strong> agent that tests. This guide shows how to set that up in one command with AgenticSquad.dev, and how to watch the team work.</p>
+
+    <h2>What you get</h2>
+    <ul>
+      <li><strong>A Scrum Master</strong> (<code>tech-pm</code>) you talk to. It sizes each request, picks the platform team and writes the cards.</li>
+      <li><strong>One team per platform</strong> for Web, Android and iOS, each with a Tech Lead, Developer and QA.</li>
+      <li><strong>A Kanban board</strong> where every brief, decision and result lives on the cards, moving from Backlog to In Progress, Review and Done.</li>
+      <li><strong>A live office view</strong> in your browser that shows who is working on which card and every handoff between agents.</li>
+    </ul>
+
+    <h2>Step 1: Install it in your project</h2>
+    <p>You need Node.js. Open a terminal, go to your project folder and run the command. There is nothing to install globally and it takes under 5 seconds.</p>
+<pre><code>cd your-project
+npx agenticsquad</code></pre>
+    <p>The portal opens in your browser at <code>http://localhost:3000</code> (or the next free port). If the project has no team yet, the setup screen lets you pick a Web, Android or iOS team, or all three, and you can change roles later in Team Studio.</p>
+
+    <h2>Step 2: Let it write the agent files</h2>
+    <p>Your team is stored as plain Markdown and YAML in <code>.agents/</code>. One command writes it out in the format each AI tool reads:</p>
+<pre><code>npx -p agenticsquad agents sync</code></pre>
+    <div class="table">
+      <table>
+        <thead><tr><th>Tool</th><th>Files it reads</th></tr></thead>
+        <tbody>
+          <tr><td>Claude Code</td><td><code>CLAUDE.md</code> and the subagents in <code>.claude/agents/</code></td></tr>
+          <tr><td>OpenAI Codex</td><td><code>AGENTS.md</code> and <code>.codex/</code></td></tr>
+          <tr><td>Gemini / Antigravity</td><td><code>GEMINI.md</code></td></tr>
+          <tr><td>OpenCode</td><td><code>.agents/registry.yaml</code> and <code>.agents/definitions/*.md</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Edit a role once, run <code>npx -p agenticsquad agents sync</code> again, and every tool gets the same change. <code>npx -p agenticsquad agents validate</code> and <code>npx -p agenticsquad agents doctor</code> check the setup for missing skills and delegation loops.</p>
+
+    <h2>Step 3: Ask Claude Code as usual</h2>
+    <p>Describe the work in your normal Claude Code session. The session hands the request to the Scrum Master, which decides how big it is:</p>
+    <ul>
+      <li><strong>Small change</strong> (one to three files, no change to a shared type, API or stored data): one card goes straight to the platform's Developer, and the Tech Lead reviews it.</li>
+      <li><strong>Bigger change:</strong> the Tech Lead splits it into contracts for the Developer and hands testing to QA. QA records pass or fail for every acceptance criterion, and the Tech Lead reviews against the contract.</li>
+    </ul>
+    <p>Each agent reads its own card instead of a long pasted prompt, which keeps every subagent's context small and focused.</p>
+
+    <h2>Step 4: Watch the team work</h2>
+    <p>The portal reads Claude Code's own session history for the project (<code>~/.claude/projects/</code>, including subagents and worktrees), so there is nothing to add to Claude Code. You can see:</p>
+    <ul>
+      <li>the floor plan, with agents walking cards to each other;</li>
+      <li>the Kanban board with timestamps and assignees;</li>
+      <li>the handoff stream with the exact brief each agent received;</li>
+      <li>the tools each agent used, the code it changed, and work time and tokens per role.</li>
+    </ul>
+
+    <h2>Is it private?</h2>
+    <p>Yes. The portal only listens on <code>127.0.0.1</code> and reads files on your machine. Your code, file paths, card text and tokens are never sent anywhere. It sends anonymous usage statistics, which you can turn off in Settings or with <code>VO_ANALYTICS=off npx agenticsquad</code>.</p>
+
+    <h2>Not using Claude Code?</h2>
+    <p>The same team works in OpenAI Codex, Gemini and Antigravity, and OpenCode, including local models through OpenCode. Run the same command and ask in your usual tool.</p>
+
+    <div class="cta">
+      <strong>Try it in your project</strong>
+      <p>Free and MIT licensed. <code>cd your-project</code>, then <code>npx agenticsquad</code>.</p>
+      <a class="btn" href="/">See how it works</a>
+    </div>
+  </article>
+</main>
+<footer><div class="wrap">AgenticSquad.dev · MIT licence · by Syed Ahmad Shahwaiz</div></footer>
+</body>
+</html>

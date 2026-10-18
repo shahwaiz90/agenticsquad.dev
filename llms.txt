@@ -1,0 +1,14 @@
+# AgenticSquad.dev
+
+> AgenticSquad.dev gives your AI coding assistant a team: a Scrum Master plus a Tech Lead, Developer and QA for each platform (Web, Android, iOS). You talk to the Scrum Master, it puts the work on a Kanban board as cards, and the other agents pick the cards up and finish them. A local portal shows every handoff live. Free, MIT licensed, runs on your machine.
+
+Install: in a terminal, `cd` into your project folder, then run `npx agenticsquad` (needs Node.js, takes under 5 seconds). Works with Claude Code, OpenAI Codex, Google Gemini and Antigravity, and OpenCode. The npm package is `agenticsquad`.
+
+## Pages
+
+- [Home](https://agenticsquad.dev/): what it does, how a request moves through the team, what the portal shows, FAQ
+- [How to run a multi-agent team in Claude Code](https://agenticsquad.dev/claude-code-multi-agent-team/): step-by-step setup guide
+
+## Links
+
+- [npm package](https://www.npmjs.com/package/agenticsquad)

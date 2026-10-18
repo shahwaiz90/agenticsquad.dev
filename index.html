@@ -31,6 +31,7 @@
 <meta name="twitter:description" content="Run a Scrum Master, Tech Lead, Developer and QA as AI agents. AgenticSquad.dev turns one request into Kanban cards and shows every handoff live. Free, local, one npm command.">
 <meta name="twitter:image" content="https://agenticsquad.dev/og-image.png">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AgenticSquad.dev", "alternateName": "agenticsquad", "url": "https://agenticsquad.dev/", "description": "Run a Scrum Master, Tech Lead, Developer and QA as AI agents. AgenticSquad.dev turns one request into Kanban cards and shows every handoff live. Free, local, one npm command.", "applicationCategory": "DeveloperApplication", "operatingSystem": "macOS, Windows, Linux", "softwareVersion": "1.3.0", "license": "https://opensource.org/licenses/MIT", "image": "https://agenticsquad.dev/og-image.png", "installUrl": "https://www.npmjs.com/package/agenticsquad", "downloadUrl": "https://www.npmjs.com/package/agenticsquad", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Syed Ahmad Shahwaiz"}, "keywords": "AI agents, multi-agent, Claude Code, Codex, Gemini, OpenCode, Scrum Master agent, Kanban, agent orchestration, developer tools"}, {"@context": "https://schema.org", "@type": "WebSite", "name": "AgenticSquad.dev", "url": "https://agenticsquad.dev/"}]</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is AgenticSquad.dev?", "acceptedAnswer": {"@type": "Answer", "text": "AgenticSquad.dev gives your AI coding assistant a team: a Scrum Master plus a Tech Lead, Developer and QA for each platform (Web, Android, iOS). You talk to the Scrum Master, it puts the work on a Kanban board as cards, and the other agents pick the cards up and finish them. A local portal shows every handoff live on an office floor plan and on the board."}}, {"@type": "Question", "name": "How do I install it?", "acceptedAnswer": {"@type": "Answer", "text": "You need Node.js. Open a terminal, cd into your project folder, then run npx agenticsquad. There is nothing to install globally, and it takes under 5 seconds. The portal opens in your browser and finds your agents, or helps you pick a Web, Android or iOS team."}}, {"@type": "Question", "name": "Which AI coding tools does it work with?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Code, OpenAI Codex, Google Gemini and Antigravity, and OpenCode, including local models through OpenCode. You define the team once and npx -p agenticsquad agents sync writes it out as CLAUDE.md, AGENTS.md, GEMINI.md and each tool's own agent files."}}, {"@type": "Question", "name": "Does my code leave my machine?", "acceptedAnswer": {"@type": "Answer", "text": "No. The portal runs on 127.0.0.1 and reads each tool's session history from your own disk. Code, file paths, card text and tokens are never sent anywhere. The portal sends anonymous usage statistics, which you can switch off in Settings or by starting it with VO_ANALYTICS=off."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. AgenticSquad.dev is free and MIT licensed."}}, {"@type": "Question", "name": "Can I change the agents, their skills and rules?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Edit them in Team Studio inside the portal, or edit the Markdown files in .agents/definitions/ directly. You can set roles, names, allowed tools, skills, rules and avatars, then run npx -p agenticsquad agents sync."}}, {"@type": "Question", "name": "How do small changes differ from big ones?", "acceptedAnswer": {"@type": "Answer", "text": "The Scrum Master sizes each request. A small change (one to three files, no change to a shared type, API or stored data) goes straight to the platform's Developer, with the Tech Lead as reviewer. A bigger one goes to the Tech Lead, who writes technical contracts for the Developer and hands testing to QA."}}, {"@type": "Question", "name": "Can I run it on another port or for another folder?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Use npx agenticsquad --port 3001 for another port, or npx agenticsquad --dir /path/to/project to watch a different project. Several projects can run at once on different ports."}}]}</script>
 <!-- Google Analytics (GA4): visits plus a few click events, see track() below. Off on localhost and for automated browsers. -->
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -359,6 +360,16 @@ section { padding-block: clamp(64px, 9vw, 120px); }
 @media (max-width: 860px) { .build { grid-template-columns: 1fr; } }
 
 /* start */
+.faq { display: grid; gap: 10px; max-width: 860px; }
+.qa { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.qa summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; }
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: "+"; font: 500 1.2rem var(--f-mono); color: var(--lamp); flex: none; }
+.qa[open] summary::after { content: "−"; }
+.qa h3 { font-size: 1.05rem; }
+.qa p { padding: 0 18px 18px; color: var(--muted); max-width: 72ch; }
+.qa code, .lede a { color: var(--fg); }
+.qa code { font-size: .85em; background: var(--panel2); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; }
 .start { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
 .term { border: 1px solid var(--line2); border-radius: 14px; background: var(--panel); overflow: hidden; box-shadow: var(--shadow); min-width: 0; }
 .term-body { padding: 20px 22px 24px; font: 400 .85rem/1.9 var(--f-mono); overflow-x: auto; }
@@ -399,6 +410,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <a href="#tools">Any AI tool</a>
       <a href="#build">Progress</a>
       <a href="#start">Get started</a>
+      <a href="#faq">FAQ</a>
     </div>
     <button class="theme-btn" id="theme-btn" type="button" aria-label="Switch to dark theme">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -476,7 +488,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">How one request moves</div>
-      <h2>From a sentence to a finished card, with every handoff on the record.</h2>
+      <h2>How the AI agent team turns a sentence into a finished card.</h2>
     </div>
     <div class="steps" role="tablist" aria-label="Stages of a request" id="steps"></div>
     <div class="step-detail" id="stepDetail" role="tabpanel"></div>
@@ -487,9 +499,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       </div>
       <div class="fast-route" aria-label="Fast path: you, Scrum Master, Developer, then Tech Lead review">
         <span class="hop"><span class="you">you</span>You</span><span class="arr" aria-hidden="true">→</span>
-        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/projectmanager.png">Scrum Master</span><span class="arr" aria-hidden="true">→</span>
-        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/developer.png">Developer</span><span class="arr" aria-hidden="true">→</span>
-        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/techlead.png">Tech Lead reviews</span>
+        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/projectmanager.webp">Scrum Master</span><span class="arr" aria-hidden="true">→</span>
+        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/developer.webp">Developer</span><span class="arr" aria-hidden="true">→</span>
+        <span class="hop"><img alt="" loading="lazy" decoding="async" width="22" height="22" src="img/techlead.webp">Tech Lead reviews</span>
       </div>
     </div>
   </div>
@@ -499,7 +511,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">What you see</div>
-      <h2>Every angle on the same work, all from real sessions.</h2>
+      <h2>Every angle on your AI agents&#39; work, all from real sessions.</h2>
       <p class="lede">Next to the floor plan and the board, the portal shows the conversation between agents, the tools they used, the code they changed and the time and tokens each role spent. A finished requirement can be replayed on the floor plan, and first-time users can watch a short demo.</p>
     </div>
     <div class="views">
@@ -544,7 +556,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Works with your AI tool</div>
-      <h2>Define the team once. Every tool gets the same roles.</h2>
+      <h2>Define the agent team once. Claude Code, Codex, Gemini and OpenCode get the same roles.</h2>
       <p class="lede">Roles, skills and rules live as plain Markdown and YAML in your repository, and Team Studio in the portal edits the same files. One command writes them out in the format each AI tool reads, including the rule that the main session only dispatches, so nothing drifts between tools.</p>
     </div>
     <div class="sync" id="sync">
@@ -566,7 +578,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
           <div>.agents/skills/ · 60 skills</div>
         </div>
       </div>
-      <div class="pill" id="pill">npx agents sync</div>
+      <div class="pill" id="pill">npx -p agenticsquad agents sync</div>
       <div class="targets" id="targets">
         <div class="target"><b>Claude Code</b><span>CLAUDE.md · .claude/agents/</span></div>
         <div class="target"><b>OpenAI Codex</b><span>AGENTS.md · .codex/</span></div>
@@ -642,7 +654,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   <div class="wrap start">
     <div>
       <div class="eyebrow">Get started</div>
-      <h2 style="margin-top:14px">One command in any project.</h2>
+      <h2 style="margin-top:14px">Install the agent team with one command.</h2>
       <div class="how">
         <ol>
           <li><span class="i">1</span><p><strong>Open your project folder</strong> in a terminal. New or existing, any stack.</p></li>
@@ -654,6 +666,26 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="term">
       <div class="stage-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="url">~/your-project</span><button class="cmd" type="button" data-copy="npx agenticsquad" style="padding:4px 8px" aria-label="Copy the install command"><span class="copy" style="border:0;padding:0">copy</span></button></div>
       <div class="term-body"><div><span class="p">$</span> cd your-project</div><div><span class="p">$</span> npx agenticsquad</div><div class="o">Discovered 4 agents in .agents/registry.yaml</div><div class="o">  SM · LEAD · DEV · QA</div><div><span class="g">✓</span> Portal running at http://127.0.0.1:3000</div><div class="o caret">Watching Claude Code, OpenCode and Antigravity sessions </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions about the AI agent team.</h2>
+      <p class="lede">New to it? Read the <a href="/claude-code-multi-agent-team/">guide to running a multi-agent team in Claude Code</a>.</p>
+    </div>
+    <div class="faq">
+      <details class="qa" open><summary><h3>What is AgenticSquad.dev?</h3></summary><p>AgenticSquad.dev gives your AI coding assistant a team: a Scrum Master plus a Tech Lead, Developer and QA for each platform (Web, Android, iOS). You talk to the Scrum Master, it puts the work on a Kanban board as cards, and the other agents pick the cards up and finish them. A local portal shows every handoff live on an office floor plan and on the board.</p></details>
+      <details class="qa"><summary><h3>How do I install it?</h3></summary><p>You need Node.js. Open a terminal, <code>cd</code> into your project folder, then run <code>npx agenticsquad</code>. There is nothing to install globally, and it takes under 5 seconds. The portal opens in your browser and finds your agents, or helps you pick a Web, Android or iOS team.</p></details>
+      <details class="qa"><summary><h3>Which AI coding tools does it work with?</h3></summary><p>Claude Code, OpenAI Codex, Google Gemini and Antigravity, and OpenCode, including local models through OpenCode. You define the team once and <code>npx -p agenticsquad agents sync</code> writes it out as CLAUDE.md, AGENTS.md, GEMINI.md and each tool's own agent files.</p></details>
+      <details class="qa"><summary><h3>Does my code leave my machine?</h3></summary><p>No. The portal runs on 127.0.0.1 and reads each tool's session history from your own disk. Code, file paths, card text and tokens are never sent anywhere. The portal sends anonymous usage statistics, which you can switch off in Settings or by starting it with <code>VO_ANALYTICS=off</code>.</p></details>
+      <details class="qa"><summary><h3>Is it free?</h3></summary><p>Yes. AgenticSquad.dev is free and MIT licensed.</p></details>
+      <details class="qa"><summary><h3>Can I change the agents, their skills and rules?</h3></summary><p>Yes. Edit them in Team Studio inside the portal, or edit the Markdown files in <code>.agents/definitions/</code> directly. You can set roles, names, allowed tools, skills, rules and avatars, then run <code>npx -p agenticsquad agents sync</code>.</p></details>
+      <details class="qa"><summary><h3>How do small changes differ from big ones?</h3></summary><p>The Scrum Master sizes each request. A small change (one to three files, no change to a shared type, API or stored data) goes straight to the platform's Developer, with the Tech Lead as reviewer. A bigger one goes to the Tech Lead, who writes technical contracts for the Developer and hands testing to QA.</p></details>
+      <details class="qa"><summary><h3>Can I run it on another port or for another folder?</h3></summary><p>Yes. Use <code>npx agenticsquad --port 3001</code> for another port, or <code>npx agenticsquad --dir /path/to/project</code> to watch a different project. Several projects can run at once on different ports.</p></details>
     </div>
   </div>
 </section>
@@ -673,7 +705,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s, r = document) => r.querySelector(s);
 const track = (name, params) => { try { gtag('event', name, params); } catch (e) {} };
-const IMG = { 'tech-pm': 'img/projectmanager.png', 'web-tech-lead': 'img/techlead.png', 'web-dev': 'img/developer.png', 'web-tester': 'img/qa.png' };
+const IMG = { 'tech-pm': 'img/projectmanager.webp', 'web-tech-lead': 'img/techlead.webp', 'web-dev': 'img/developer.webp', 'web-tester': 'img/qa.webp' };
 const ROLE = { 'tech-pm': 'Scrum Master', 'web-tech-lead': 'Tech Lead', 'web-dev': 'Developer', 'web-tester': 'QA' };
 const COLOR = { 'tech-pm': '--lamp', 'web-tech-lead': '--sky', 'web-dev': '--mint', 'web-tester': '--rose' };
 const sleep = ms => new Promise(r => setTimeout(r, reduce ? Math.min(ms, 400) : ms));
@@ -689,6 +721,7 @@ document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click'
 }));
 
 /* ---------- analytics: CTA, nav links and how far people scroll ---------- */
+document.querySelectorAll('.qa').forEach(d => d.addEventListener('toggle', () => { if (d.open) track('faq_open', { question: d.querySelector('h3').textContent.slice(0, 80) }); }));
 document.querySelectorAll('.btn-primary').forEach(a => a.addEventListener('click', () => track('cta_click', { cta: 'see_request_move' })));
 document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => track('nav_click', { target: a.getAttribute('href').slice(1) || 'top' })));
 if ('IntersectionObserver' in window) {
