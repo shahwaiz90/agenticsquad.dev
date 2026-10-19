@@ -4,7 +4,7 @@
 
 - Website: https://agenticsquad.dev/ (Arabic: https://agenticsquad.dev/ar/)
 - npm package: `agenticsquad` (https://www.npmjs.com/package/agenticsquad)
-- Current version: 1.3.0
+- Current version: 1.4.0
 - Licence: MIT
 - Author: Syed Ahmad Shahwaiz (https://www.linkedin.com/in/ahmadshahwaiz/)
 
@@ -17,7 +17,7 @@ cd your-project
 npx agenticsquad
 ```
 
-Nothing is installed globally and setup takes under 5 seconds. The portal opens at http://localhost:3000 (or the next free port). If the project has no team yet, a setup screen lets you pick a Web, Android or iOS team, or all three.
+Nothing is installed globally and setup takes under 5 seconds. The portal opens at http://localhost:3000 (or automatically switches to the next free port if occupied). If the project has no team yet, a setup screen lets you pick a Web, Android or iOS team, or all three.
 
 Options: `npx agenticsquad --port 3001` for another port, `npx agenticsquad --dir /path/to/project` to watch another folder. Several projects can run at once on different ports.
 
@@ -42,14 +42,15 @@ Every brief, decision and result lives on the cards, so each agent reads its car
 
 ## What the portal shows
 
-- Office floor plan: agents walk cards to each other on handoffs.
-- Kanban board: Backlog, In Progress, Review, Done, with timestamps and assignees.
+- Office floor plan: agents walk cards to each other on handoffs, with a live multi-team switcher strip.
+- Central Knowledge Base (`Knowledge` view): branch-aware codebase intelligence indexing architecture summaries, components, dependencies, and source facts so agents query structured project context.
+- Kanban board: Backlog, In Progress, Review, Done, with per-epic task numbering (`EPIC-N-TASK-1`), timestamps, and assignees.
 - Handoff stream: every delegation with the exact brief passed.
 - Tool analytics: terminal commands, MCP tools, handbacks and file writes per agent.
 - Code change inspector: the diff each agent produced, filed under its card.
-- Time and tokens: work time and token usage per role.
+- Time and tokens: work time and token usage per role, preserved across team switches.
 - Replay: plays a finished requirement's handoffs on the floor plan; can be saved as video.
-- Watch demo: a scripted walkthrough through your own team that saves nothing.
+- Watch demo: a scripted walkthrough through your own team that saves nothing and can be dismissed.
 
 ## Privacy
 
