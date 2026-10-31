@@ -4,7 +4,7 @@
 
 - Website: https://agenticsquad.dev/ (Arabic: https://agenticsquad.dev/ar/)
 - npm package: `agenticsquad` (https://www.npmjs.com/package/agenticsquad)
-- Current version: 1.4.0
+- Current version: 1.6.0
 - Licence: MIT
 - Author: Syed Ahmad Shahwaiz (https://www.linkedin.com/in/ahmadshahwaiz/)
 
